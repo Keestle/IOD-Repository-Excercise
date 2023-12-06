@@ -1,0 +1,120 @@
+html>
+    <head>
+        <title>Hello World</title>
+    </head>
+    <body>
+        <h1>Hello World!!!</h1>
+        <ul>
+            <li><input id="input" type="number"></li>
+            <li><input id="input2" type="number"></li>
+           </ul>
+           <button onclick="subtract()">Subtract</button>
+           <button onclick="addition()">Add</button>
+           <button onclick="multiply()">Multiply</button>
+           <button onclick="divide()">Divide</button>
+           <p id="result"></p>
+
+           <h2>Insert Name here</h2>
+           <li><input id="name" type="text"></li>
+           <button onclick= "nameMessage()">generate name</button>
+           <p id="result2"></p>
+
+           <h2>Remaining days before Christmas</h2>
+           <button onclick="calculateremainingdays()">calculate</button>
+           <p id="remainingdays"></p>
+
+           <h2>Checking the Pair of numbers</h2>
+           <ul>
+            <li><input id="number1" type="number"></li>
+            <li><input id="number2" type="number"></li>
+           </ul>
+           <button onclick="numberCheck()">Check</button>
+           <p id="number"></p>
+        
+    </body>
+    <script>
+        var result = document.getElementById("result");
+        var result2 = document.getElementById("result2");
+        // Create the - function
+
+        function subtract(){
+            let a = parseInt(document.getElementById("input").value);
+            let b = parseInt(document.getElementById("input2").value);
+            result.textContent = (a - b)
+            console.log(result)
+        }
+        // Create the + function
+        function addition(){
+            let a = parseInt(document.getElementById("input").value);
+            let b = parseInt(document.getElementById("input2").value);
+            result.textContent = (a + b)
+            console.log(result) 
+        }
+        // Create the * function
+        function multiply(){
+            let a = parseInt(document.getElementById("input").value);
+            let b = parseInt(document.getElementById("input2").value);
+            result.textContent = (a * b)
+            console.log(result)
+        }
+        // Create the / function
+        function divide(){
+            let a = parseInt(document.getElementById("input").value);
+            let b = parseInt(document.getElementById("input2").value);
+            result.textContent = (a / b)
+            console.log(result)
+        }
+
+        // Create a function to take in input from person
+        function nameMessage(){
+        var a = document.getElementById("name").value;
+        result2.textContent = "hello" + a;
+        console.log(result2.textContent);
+        }
+
+        // Write a Javascript program to calc. the days left before christmas
+        function calculateremainingdays(){
+            // current date
+            var currentDate = new Date();
+
+            // Current year
+            var currentYear = currentDate.getFullYear();
+            console.log(currentYear);
+
+            //Christmas year
+            var christmasDate = new Date(currentYear, 11, 25)
+
+            //calculate the remaining days
+            var remainingdays = Math.ceil((christmasDate - currentDate) / (1000 * 60 * 60 * 24));
+
+            //display results
+            var resultElement = document.getElementById("remainingdays");
+            resultElement.textContent = "Remaining days until Christmas: " + remainingdays + " days";
+        }
+
+        // Write a function to TAKE IN 2 NUMBERS
+        
+        function numberCheck(){
+            var x = parseInt(document.getElementById("number1").value);
+            var v = parseInt(document.getElementById("number2").value);
+            let result = document.getElementById('number');
+
+            // Write a check (if statements)
+
+            if ((x === 50 || v === 50) || (x + v === 50)) {
+                document.getElementById("number").textContent = true;
+                return true;
+            }
+
+            else {
+                result.textContent = false;
+                return false;
+            }
+
+        }
+
+        
+
+
+    </script>
+</html>
