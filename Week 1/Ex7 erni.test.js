@@ -1,4 +1,4 @@
-const ernieFunction = require("./ernie.js");
+const ernieFunction = require("./Ex 7 ernie.js");
 
 // Excerise 7 -3 Tests for question 10
 test('check if data type is a number', () => {
