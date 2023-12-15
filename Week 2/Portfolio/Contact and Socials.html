@@ -14,12 +14,11 @@
 
     <main>
         <h2>Social Media</h2>
-        <h4>Links for my social media</h4>
-        <ul class="icons">
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>LinkedIn</li>
-        </ul>
+        <h4>Links to my socials!</h4>
+        <p class="icons"><button onclick="redirectToFacebook()">Facebook</button></p>
+        <p class="icons"><button onclick="redirectToInstagram()">Instagram</button></p>
+        <p class="icons"><button onclick="redirectToLinkedIn()">LinkedIn</button></p>
+    
          <section>
             <h2>Contact Details</h2>
             <p>Email: yeeern98@gmail.com</p>
@@ -32,8 +31,17 @@
         <p><a class="menu" href="Work Experience.html">Work Experience</a></p> 
         <p><a class="menu" href="./Projects.html">Projects</a></p> 
     </nav>
-    <footer>
-    </footer>
-
 </body>
+<script>
+    function redirectToFacebook() {
+        window.location.href = "https://www.facebook.com/lim.ernie.9/";
+    }
+    function redirectToInstagram() {
+        window.location.href = "https://www.instagram.com/ernie.lim/";
+    }
+    function redirectToLinkedIn() {
+        window.location.href = "https://www.linkedin.com/in/ernie-lim-382b5a123/";
+    }
+
+</script>
 </html>

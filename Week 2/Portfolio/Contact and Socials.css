@@ -25,6 +25,8 @@ header {
 main {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-family: 'Roboto', sans-serif;
     max-width: 600px;
     padding: 20px;
@@ -34,8 +36,19 @@ main {
     text-shadow:1px #8F9489;
 }
 
-#facebook {
-    align-items: left;
+.icons {
+            padding: 10px 20px;
+            background-color: #E7E08B;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
 }
 
 .navigation {
@@ -77,19 +90,6 @@ a:hover {
         transform: translateY(0);
     }
 }
-
-/* @media screen and (max-width:800px) and (orientation:portrait){
-    body{
-        height:130vh;
-
-    }
-    main {
-    font-size: 80%;
-}
-.navigation {
-    font-size: 70%;
-}
-} */
 
 @media screen and (max-width: 1000px) and (orientation:landscape) {
     body{
