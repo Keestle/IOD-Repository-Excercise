@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Roboto:ital,wght@1,900&display=swap');
+
+body {
+    background-color: #FAFBEF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    animation: slideInFromRight 1.5s ease-in-out forwards;
+}
+
+header {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+
+.profilePic {
+    border-radius: 30%; /* Apply a border-radius for a circular shape */
+    width: 190px; /* Adjust the width as needed */
+    height: 230px; /* Adjust the height as needed */
+    object-fit: fill; /* Maintain aspect ratio and cover the entire space */
+    margin-bottom: 20px; /* Add margin for spacing */
+    position: absolute;
+    top: 30px;
+    right: 400px;
+    box-shadow: 3px #292B27;
+}
+
+main {
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #D2E4C4;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #000; /* Border for the cursor */
+    animation:typing 5s steps(30), blink-caret 0.75s infinite; 
+    animation-delay: 0.5s;/* Typing and blinking cursor animations */
+}
+
+/* Typing animation */
+@keyframes typing {
+    from {
+        width: 0; /* Start with no text displayed */
+    }
+    to {
+        width: 100%; /* Fully reveal the text */
+    }
+}
+
+/* Cursor blink animation */
+@keyframes blink-caret {
+    0%, 100% {
+        border-color: transparent; /* Invisible cursor */
+    }
+    50% {
+        border-color: #000; /* Visible cursor */
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.navigation {
+    display: flex;
+    flex-flow: row;
+    column-gap: 30px;
+    justify-content: center;
+    align-content: center;
+    font-family:'Roboto', sans-serif;
+    border-radius: 90px;
+    border: none;
+    background-color: #88AA89;
+    min-width: 40px;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    box-shadow: #292B27;
+}
+.menu {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* White text color */
+    text-shadow: 1px 0.5px 0.5px #52564E;
+}
+
+a {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* White text color */
+    
+}
+
+a:hover {
+    background-color: #E7E08B; /* Darker green on hover */
+}
+
+.subtext {
+    list-style-position: outside;
+    list-style-type: disc;
+}
+
+@media screen and (max-width:800px) and (orientation:portrait){
+    body{
+        height:130vh;
+
+    }
+    main {
+    font-size: 80%;
+}
+.navigation {
+    font-size: 70%;
+}
+}
+
+@media screen and (max-width: 1000px) and (orientation:landscape) {
+    body{
+        height:300vh;
+    }
+    }
+
+    .navigation {
+        font-size: 70%;
+}

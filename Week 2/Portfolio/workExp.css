@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Roboto:ital,wght@1,900&display=swap');
+
+body {
+    background-color: #FAFBEF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    animation: slideInFromButtom 1s ease-in-out forwards;
+}
+
+header {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+main {
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #D2E4C4;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-shadow:1px #8F9489;
+}
+.navigation {
+    display: flex;
+    flex-flow: row;
+    column-gap: 30px;
+    font-family:'Roboto', sans-serif;
+    justify-content: center;
+    border-radius: 90px;
+    border: none;
+    background-color: #88AA89;
+    min-width: 40px;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    box-shadow: #292B27;
+}
+.menu {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* White text color */
+    text-shadow: 1px 0.5px 0.5px #52564E;
+}
+a {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* White text color */
+}
+
+a:hover {
+    background-color: #E7E08B; /* Darker green on hover */
+}
+
+@keyframes slideInFromButtom {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width:800px) and (orientation:portrait){
+    body{
+        height:130vh;
+
+    }
+    main {
+    font-size: 80%;
+}
+.navigation {
+    font-size: 70%;
+}
+}
+
+@media screen and (max-width: 1000px) and (orientation:landscape) {
+    body{
+        height:300vh;
+    }
+    }
+
+    .navigation {
+        font-size: 70%;
+}
