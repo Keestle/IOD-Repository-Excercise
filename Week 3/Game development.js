@@ -55,7 +55,7 @@ class Inventory {
 const numberOfRounds = 10;
 
 // Function to display combat results in the console
-function displayResults(roundNumber, attack, target, damage, level) {
+function displayResults(roundNumber, attack, target, damage,) {
     console.log(`Round ${roundNumber}: ${attack.name} attacked ${target.name} with ${attack.inventory.items[0].ItemName}. Damage dealt: ${damage}. ${target.name}'s health remaining: ${target.health}`);
 
 
@@ -106,3 +106,4 @@ for (let round = 1; round <= numberOfRounds; round++) {
     console.log("------");
     }
 }
+
