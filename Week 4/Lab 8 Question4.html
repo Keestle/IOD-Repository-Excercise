@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Date Comparison</title>
+    <!-- reference Moment.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</head>
+<body>
+    <h2>Given Dates</h2>
+    <!-- container for displaying given dates -->
+    <div id="displayGivenDates"></div>
+    
+    <h2>Comparison Result</h2>
+    <!-- container for displaying comparison result -->
+    <div id="displayComparisonResult"></div>
+
+    <script type="text/javascript">
+        (function() {
+            // Given dates
+            const date1 = new Date(2022, 1, 1); // Example date 1
+            const date2 = new Date(2022, 2, 15); // Example date 2
+
+            // display given dates
+            let eDisplayGivenDates = document.getElementById('displayGivenDates');
+            eDisplayGivenDates.innerHTML = "Date 1: " + date1.toDateString() + "<br>Date 2: " + date2.toDateString();
+
+            // Compare dates using JavaScript Date objects
+            let comparisonResult = compareDates(date1, date2);
+            let eDisplayComparisonResult = document.getElementById('displayComparisonResult');
+            eDisplayComparisonResult.innerHTML = "Comparison Result (JavaScript Date): " + comparisonResult;
+
+            // Given dates with Moment.js
+            const momentDate1 = moment('2022-01-01'); // Example date 1 with Moment.js
+            const momentDate2 = moment('2022-02-15'); // Example date 2 with Moment.js
+
+            // Compare dates using Moment.js
+            let momentComparisonResult = compareMomentDates(momentDate1, momentDate2);
+            eDisplayComparisonResult.innerHTML += "<br>Comparison Result (Moment.js): " + momentComparisonResult;
+
+            function compareDates(date1, date2) {
+                // Compare dates using JavaScript Date objects
+                if (date1 < date2) {
+                    return "Date 1 is before Date 2";
+                } else if (date1 > date2) {
+                    return "Date 1 is after Date 2";
+                } else {
+                    return "Dates are equal";
+                }
+            }
+
+            function compareMomentDates(momentDate1, momentDate2) {
+                // Compare dates using Moment.js
+                if (momentDate1.isBefore(momentDate2)) {
+                    return "Date 1 is before Date 2";
+                } else if (momentDate1.isAfter(momentDate2)) {
+                    return "Date 1 is after Date 2";
+                } else {
+                    return "Dates are equal";
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moment DateTime Format</title>
+    <!-- reference Moment.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</head>
+<body>
+    <h2>Moment Date</h2>
+    <!-- container for Moment.js output -->
+    <div id="displayMoment"></div>
+    
+    <h2>JavaScript Date</h2>
+    <!-- container for JavaScript Date output -->
+    <div id="displayJsDate"></div>
+    
+    <h2>Days till Birthday</h2>
+    <!-- container for JavaScript Date output -->
+    <div id="displayDaysToBirthday"></div>
+
+    <h2>Age</h2>
+    <!-- container for displaying age -->
+    <div id="displayAge"></div>
+
+    <script type="text/javascript">
+        (function() {
+            // instantiate a moment object
+            let NowMoment = moment();
+            
+            // instantiate a JavaScript Date object
+            let NowDate = new Date();
+
+            // Set a specific birthday date (February 18, 1998) with time set to midnight
+            const birthday = new Date(1998, 1, 18);
+            birthday.setHours(0, 0, 0, 0);
+
+            // display value of moment object in #displayMoment div
+            let eDisplayMoment = document.getElementById('displayMoment');
+            eDisplayMoment.innerHTML = NowMoment;
+
+            // display value of Date object in #displayJsDate div
+            let eDisplayDate = document.getElementById('displayJsDate');
+            eDisplayDate.innerHTML = NowDate;
+
+            // Calculate days till birthday and display in #displayDaysToBirthday div (Excercise 8.1)
+            let daysToBirthday = Math.floor((birthday - NowDate) / (24 * 60 * 60 * 1000));
+            let eDisplayBirthday = document.getElementById('displayDaysToBirthday');
+            eDisplayBirthday.innerHTML = daysToBirthday;
+
+            // Calculate age
+            let age = calculateAge(birthday, NowDate);
+            let eDisplayAge = document.getElementById('displayAge');
+            eDisplayAge.innerHTML = age;
+
+            function calculateAge(birthdate, currentDate) { // Excercise 8.2
+                // Calculate the difference in years, months, and days
+                let diff = moment(currentDate).diff(moment(birthdate));
+                let duration = moment.duration(diff);
+
+                // Get the years, months, and days
+                let years = duration.years();
+                let months = duration.months();
+                let days = duration.days();
+
+                return years + " years, " + months + " months, and " + days + " days";
+            }
+        })();
+    </script>
+</body>
+</html>

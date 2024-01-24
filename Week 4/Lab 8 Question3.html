@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Closest Date with Moment.js</title>
+    <!-- reference Moment.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</head>
+<body>
+    <h2>Given Dates</h2>
+    <!-- container for displaying given dates -->
+    <div id="displayGivenDates"></div>
+    
+    <h2>Closest Date to Current Date</h2>
+    <!-- container for displaying closest date -->
+    <div id="displayClosestDate"></div>
+
+    <script type="text/javascript">
+        (function() {
+            // Given dates
+            const date1 = moment('2022-01-01'); // Example date 1
+            const date2 = moment('2022-02-15'); // Example date 2
+
+            // display given dates
+            let eDisplayGivenDates = document.getElementById('displayGivenDates');
+            eDisplayGivenDates.innerHTML = "Date 1: " + date1.format('MMMM D, YYYY') + "<br>Date 2: " + date2.format('MMMM D, YYYY');
+
+            // Calculate the closest date
+            let closestDate = findClosestDate(date1, date2);
+            let eDisplayClosestDate = document.getElementById('displayClosestDate');
+            eDisplayClosestDate.innerHTML = "Closest Date: " + closestDate.format('MMMM D, YYYY');
+
+            function findClosestDate(date1, date2) {
+                // Get the current date with Moment.js
+                let currentDate = moment();
+
+                // Calculate the differences in milliseconds
+                let diff1 = Math.abs(currentDate - date1);
+                let diff2 = Math.abs(currentDate - date2);
+
+                // Return the date with the smallest difference
+                return (diff1 < diff2) ? date1 : date2;
+            }
+        })();
+    </script>
+</body>
+</html>

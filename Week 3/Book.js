@@ -1,8 +1,8 @@
 const Product = require('./Product');
 class Book extends Product {
 
-    constructor(title,author) {
-        super(title);
+    constructor(title,author, price) {
+        super(title, price);
         this.author = author;
     }
     displayInfo() {

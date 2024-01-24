@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake eCommerce</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Fake eCommerce</h1>
+    <form>
+        <div class="form-group">
+            <label for="categorySelect">Select Category:</label>
+            <select class="form-control" id="categorySelect">
+                <option value="">All Categories</option>
+            </select>
+        </div>
+    </form>
+    <div class="row" id="productCardsContainer"></div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Fetch data from the Fake Store API
+        fetch('https://fakestoreapi.com/products')
+            .then(response => response.json())
+            .then(data => {
+                // Create and populate the category dropdown
+                const categorySelect = document.getElementById('categorySelect');
+                const categories = [...new Set(data.map(product => product.category))];
+                categories.forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category;
+                    option.textContent = category;
+                    categorySelect.appendChild(option);
+                });
+
+                // Display all products initially
+                displayProducts(data);
+
+                // Event listener for category selection change
+                categorySelect.addEventListener('change', function () {
+                    const selectedCategory = this.value;
+                    const filteredProducts = selectedCategory
+                        ? data.filter(product => product.category === selectedCategory)
+                        : data;
+                    displayProducts(filteredProducts);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+        // Function to display products in Bootstrap cards
+        function displayProducts(products) {
+            const productCardsContainer = document.getElementById('productCardsContainer');
+            productCardsContainer.innerHTML = '';
+
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-4', 'mb-4');
+                card.innerHTML = `
+                    <div class="card">
+                        <img src="${product.image}" class="card-img-top" alt="${product.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.title}</h5>
+                            <p class="card-text">${product.description}</p>
+                            <p class="card-text"><strong>$${product.price.toFixed(2)}</strong></p>
+                        </div>
+                    </div>
+                `;
+                productCardsContainer.appendChild(card);
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

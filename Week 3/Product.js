@@ -65,7 +65,7 @@ class Product {
 
     // Excercise 8.5 - Handling sales. 
     get isOnSale() {
-        return this.isOnSale = value;
+        return this._isOnSale = value;
     }
 
     set isOnSale(value) {

@@ -96,7 +96,7 @@ class cart {
             total += discountedPrice * item.quantity;
         });
 
-        console.log(`Total price after applying discounts: ${total}`);
+        return total;
     }
     }
 

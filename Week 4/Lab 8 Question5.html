@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>London Time</title>
+    <!-- reference Moment.js library and timezone plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone.min.js"></script>
+</head>
+<body>
+    <h2>Current Time in London</h2>
+    <!-- container for displaying current time in London -->
+    <div id="displayLondonTime"></div>
+
+    <script type="text/javascript">
+        (function() {
+            // Get the current time in London using Moment.js
+            const londonTime = moment().tz('Europe/London').format('YYYY-MM-DD HH:mm:ss');
+
+            // display the current time in London
+            let eDisplayLondonTime = document.getElementById('displayLondonTime');
+            eDisplayLondonTime.innerHTML = "Current Time in London: " + londonTime;
+        })();
+    </script>
+</body>
+</html>

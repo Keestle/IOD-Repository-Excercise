@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Square Slider</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .slider {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            animation: slideAnimation 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes slideAnimation {
+            0% {
+                top: 0;
+                background-color: red;
+            }
+            100% {
+                top: calc(100vh - 100px);
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slider"></div>
+</body>
+</html>
